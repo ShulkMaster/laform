@@ -1,5 +1,6 @@
 package com.sovize.laform.config;
 
+import com.sovize.laform.helper.StudentValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
@@ -41,5 +42,10 @@ public class WebConfig {
                 .addResourceLocations("/resources/");
         reg.addResourceHandler("webjars/**")
                 .addResourceLocations("/webjars/");
+    }
+
+    @Bean
+    public StudentValidator studentValidator(){
+        return new StudentValidator();
     }
 }

@@ -1,6 +1,7 @@
 package com.sovize.laform.controller;
 
-import com.sovize.laform.helper.StudentValidator;
+import com.sovize.laform.domain.StudentForm;
+import com.sovize.laform.interfaces.IValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -12,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class MainController {
 
-    private final StudentValidator validator;
+    private final IValidator validator;
 
     @Autowired
-    public MainController(StudentValidator validator) {
+    public MainController(IValidator validator) {
         this.validator = validator;
     }
 
@@ -32,10 +33,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
-    public ModelAndView check() {
-        ModelAndView vm = new ModelAndView();
+    public ModelAndView check(StudentForm student) {
+        ModelAndView vm = validator.createViewModel(student);
         vm.setViewName("valid");
-        validator.validate();
         return vm;
     }
 

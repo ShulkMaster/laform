@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
             <h1 class="mt-4 text-center">Ingreso de nuevo alumno</h1>
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8">
-                    <form action="/check" method="post">
+                    <form action="#" th:action="@{/ingresar}">
                         <fieldset name="basic">
                             <div class="form-group">
                                 <label for="input-name">Nombres</label>

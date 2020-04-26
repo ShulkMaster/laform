@@ -1,16 +1,17 @@
 package com.sovize.laform.domain;
 
-import com.sovize.laform.interfaces.IValidable;
-import org.springframework.web.servlet.ModelAndView;
+
 import java.util.ArrayList;
 
-public final class StudentValidator extends StringValidator {
+public final class StudentValidator extends StringValidator<StudentForm> {
 
-    public ModelAndView createViewModel(IValidable student){
-        ArrayList<String> errors = student.validate();
-        student.validate().forEach(System.out::println);
-        ModelAndView vm = new ModelAndView();
-        vm.addObject(IValidable.Keys.Error, errors);
-        return vm;
+    @Override
+    public ArrayList<String> validate(StudentForm validable) {
+        ArrayList<String> error = new ArrayList<>();
+        if(fitsInRange(validable.getNames(), 1, 25)){
+            error.add("E")
+        }
+        return error;
     }
+
 }

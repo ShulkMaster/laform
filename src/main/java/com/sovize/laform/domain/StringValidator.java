@@ -1,7 +1,7 @@
 package com.sovize.laform.domain;
 
+import com.sovize.laform.interfaces.IValidable;
 import com.sovize.laform.interfaces.IValidator;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public abstract class StringValidator implements IValidator {
+public abstract class StringValidator <T extends IValidable> implements IValidator<T> {
 
     private final SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
 

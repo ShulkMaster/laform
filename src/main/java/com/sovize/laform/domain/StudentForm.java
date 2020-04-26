@@ -1,26 +1,14 @@
 package com.sovize.laform.domain;
 
+
 import com.sovize.laform.interfaces.IValidable;
 
-import java.util.ArrayList;
 
 public final class StudentForm implements IValidable {
 
-    private State state = State.Unchecked;
+    private State state = IValidable.State.Unchecked;
     private String names;
     private String lastNames;
-
-
-    @Override
-    public State getStatus() {
-        return state;
-    }
-
-    @Override
-    public ArrayList<String> validate() {
-
-        return null;
-    }
 
 
     public String getNames() {
@@ -38,5 +26,11 @@ public final class StudentForm implements IValidable {
     public void setLastNames(String lastNames) {
         this.lastNames = lastNames;
     }
+
+    @Override
+    public State getStatus() {
+        return state;
+    }
+
 
 }

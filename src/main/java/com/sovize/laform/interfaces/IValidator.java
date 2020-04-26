@@ -1,9 +1,7 @@
 package com.sovize.laform.interfaces;
 
-import org.springframework.web.servlet.ModelAndView;
+import java.util.ArrayList;
 
-public interface IValidator {
-
-    ModelAndView createViewModel(IValidable student);
-
+public interface IValidator<T extends IValidable> {
+    ArrayList<String> validate(T validable);
 }

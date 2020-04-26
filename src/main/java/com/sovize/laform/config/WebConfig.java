@@ -1,5 +1,7 @@
 package com.sovize.laform.config;
 
+import com.sovize.laform.domain.StringValidator;
+import com.sovize.laform.domain.StudentForm;
 import com.sovize.laform.domain.StudentValidator;
 import com.sovize.laform.interfaces.IValidator;
 import org.springframework.context.annotation.Bean;
@@ -46,7 +48,7 @@ public class WebConfig {
     }
 
     @Bean
-    public IValidator studentValidator(){
+    public IValidator<StudentForm> getStudentValidator(){
         return new StudentValidator();
     }
 }

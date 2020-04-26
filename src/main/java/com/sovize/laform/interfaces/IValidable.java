@@ -1,5 +1,7 @@
 package com.sovize.laform.interfaces;
 
+import com.sovize.laform.domain.StringValidator;
+
 import java.util.ArrayList;
 
 public interface IValidable {
@@ -8,15 +10,14 @@ public interface IValidable {
         Valid,
         Unchecked,
         Invalid
-
     }
-
-    State getStatus();
-
-    ArrayList<String> validate();
 
     class Keys {
         public static final String Error = "errors";
     }
+
+    State getStatus();
+
+    ArrayList<String> validate(StringValidator validator);
 
 }

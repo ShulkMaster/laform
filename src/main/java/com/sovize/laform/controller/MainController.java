@@ -11,7 +11,6 @@ public class MainController {
     @RequestMapping("/")
     public ModelAndView index(){
         ModelAndView vm = new ModelAndView();
-        vm.addObject("hora", "vos come mierda vicho");
         vm.setViewName("index");
         return vm;
     }
@@ -23,7 +22,9 @@ public class MainController {
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
     public ModelAndView check(){
-        return index();
+        ModelAndView vm = new ModelAndView();
+        vm.setViewName("valid");
+        return vm;
     }
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -15,45 +15,86 @@
 <body id="top">
 
 <nav class="navbar navbar-expand navbar-dark bg-primary static-top">
-    <a class="navbar-brand mr-1" href="index.html">Laform</a>
+    <a class="navbar-brand mr-1" href="/">Laform</a>
 </nav>
 
 <div id="wrapper">
     <div id="content-wrapper">
-        <div class="container-fluid text-center">
-            <h1 class="mt-4">Ingreso de nuevo alumno</h1>
-        </div>
-        <div class="s12 m10 l8">
-            <form action="/ingresar" method="post">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-        <p th:text="${hora}"></p>
-        <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Black Fang - 2020</span>
+        <div class="container-fluid">
+            <h1 class="mt-4 text-center">Ingreso de nuevo alumno</h1>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10 col-lg-8">
+                    <form action="/check" method="post">
+                        <fieldset name="basic">
+                            <div class="form-group">
+                                <label for="input-name">Nombres</label>
+                                <input type="text" id="input-name" class="form-control" placeholder="Eduardo José"
+                                       aria-describedby="name-help">
+                                <small id="name-help" class="form-text text-muted">mínimo 1 carácter y máximo 25
+                                    caracteres</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-lastname">Apellidos</label>
+                                <input type="text" id="input-lastname" name="input-lastname" class="form-control"
+                                       placeholder="Machado Flores"
+                                       aria-describedby="last-name-help">
+                                <small id="last-name-help" class="form-text text-muted">mínimo 1 carácter y máximo 25
+                                    caracteres</small>
+                            </div>
+                        </fieldset>
+                        <fieldset name="about">
+                            <div class="form-group">
+                                <label for="date-of-birth">Fecha de nacimiento</label>
+                                <input type="date" id="date-of-birth" name="date-of-birth" class="form-control"
+                                       aria-describedby="date-of-birth-help">
+                                <small id="date-of-birth-help" class="form-text text-muted">No puede ser menor al 1 de
+                                    enero
+                                    de 2003</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="place-of-birth">Lugar de nacimiento</label>
+                                <input type="text" id="place-of-birth" name="place-of-birth" placeholder="San Salvador"
+                                       class="form-control"
+                                       aria-describedby="place-of-birth-help">
+                                <small id="place-of-birth-help" class="form-text text-muted">mínimo 1 carácter y máximo
+                                    25
+                                    caracteres</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="institution">Instituto o Colegio de procedencia</label>
+                                <input type="text" class="form-control" id="institution" name="institution"
+                                       placeholder="Renegado Corazón"
+                                       aria-describedby="institution-help">
+                                <small id="institution-help" class="form-text text-muted">mínimo 1 carácter y máximo 100
+                                    caracteres</small>
+                            </div>
+                        </fieldset>
+                        <fieldset name="contact">
+                            <div class="form-group">
+                                <label for="phone">Telefono fijo</label>
+                                <input type="tel" id="phone" name="phone" class="form-control"
+                                       placeholder="22566451"
+                                       aria-describedby="phone-help">
+                                <small id="phone-help" class="form-text text-muted">8 números exactamente</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="cellphone">Teléfono móvil</label>
+                                <input type="tel" id="cellphone" name="cellphone" class="form-control"
+                                       placeholder="77875421"
+                                       aria-describedby="cellphone-help">
+                                <small id="cellphone-help" class="form-text text-muted">8 números exactamente</small>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
                 </div>
             </div>
+        </div>
+        <footer class="modal-footer bg-primary text-left">
+            <p>copyright 00088116 😂😂😆😆😆😂😂 2020</p>
         </footer>
     </div>
 </div>
-
-<a class="scroll-to-top rounded" href="#top">^</a>
 
 </body>
 </html>

@@ -31,9 +31,19 @@ public final class StudentValidator extends Validator<StudentForm> {
             errors.add("Lugar de nacimiento: " + placeCheck.getData());
         }
 
-        Result<String> institutionCheck = fitsInRange(validable.getPlaceOfBirth(), 1, 100);
+        Result<String> institutionCheck = fitsInRange(validable.getInstitution(), 1, 100);
         if (institutionCheck.failure) {
             errors.add("Instituto o Colegio de procedencia: " + institutionCheck.getData());
+        }
+
+        Result<String> phoneCheck = hasLength(validable.getPhone(), 8);
+        if (phoneCheck.failure) {
+            errors.add("Telefono fijo: " + phoneCheck.getData());
+        }
+
+        Result<String> cellphoneCheck = hasLength(validable.getCellphone(), 8);
+        if (cellphoneCheck.failure) {
+            errors.add("Teléfono móvil: " + cellphoneCheck.getData());
         }
 
         if (errors.size() > 0) {

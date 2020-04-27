@@ -7,6 +7,8 @@ public final class StudentForm {
     private String dateOfBirth;
     private String placeOfBirth;
     private String institution;
+    private String phone;
+    private String cellphone;
 
     public String getNames() {
         return names;
@@ -49,4 +51,19 @@ public final class StudentForm {
         this.institution = institution;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCellphone() {
+        return cellphone;
+    }
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
 }

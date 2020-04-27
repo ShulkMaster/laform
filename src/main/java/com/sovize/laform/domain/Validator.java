@@ -15,6 +15,13 @@ public abstract class Validator<T> {
         public static final String Error = "errors";
     }
 
+    public Result<String> hasLength(@NotNull String challenger, @PositiveOrZero int challenge) {
+        return new Result<>(
+                challenger.length() != challenge,
+                " El texto debe tener exactamente " + challenge + " caracteres"
+        );
+    }
+
     private boolean hasMinLength(@NotNull String challenger, @PositiveOrZero int challenge) {
         return challenger.length() < challenge;
     }

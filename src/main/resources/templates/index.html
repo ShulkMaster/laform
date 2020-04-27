@@ -72,14 +72,14 @@
                         <fieldset name="contact">
                             <div class="form-group">
                                 <label for="phone">Telefono fijo</label>
-                                <input type="tel" id="phone" name="phone" class="form-control"
+                                <input type="tel" id="phone" th:field="*{phone}" class="form-control"
                                        placeholder="22566451"
                                        aria-describedby="phone-help">
                                 <small id="phone-help" class="form-text text-muted">8 números exactamente</small>
                             </div>
                             <div class="form-group">
                                 <label for="cellphone">Teléfono móvil</label>
-                                <input type="tel" id="cellphone" name="cellphone" class="form-control"
+                                <input type="tel" id="cellphone" th:field="*{cellphone}" class="form-control"
                                        placeholder="77875421"
                                        aria-describedby="cellphone-help">
                                 <small id="cellphone-help" class="form-text text-muted">8 números exactamente</small>

@@ -1,9 +1,12 @@
 package com.sovize.laform.domain;
 
-public final class StudentForm{
+public final class StudentForm {
 
     private String names;
     private String lastNames;
+    private String dateOfBirth;
+    private String placeOfBirth;
+    private String institution;
 
     public String getNames() {
         return names;
@@ -19,6 +22,31 @@ public final class StudentForm{
 
     public void setLastNames(String lastNames) {
         this.lastNames = lastNames;
+    }
+
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPlaceOfBirth() {
+        return placeOfBirth;
+    }
+
+    public void setPlaceOfBirth(String placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
+    }
+
+    public String getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(String institution) {
+        this.institution = institution;
     }
 
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public abstract class Validator<T> {
 
-    private final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    protected final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
     public static class Keys{
         public static final String Error = "errors";
@@ -25,23 +25,23 @@ public abstract class Validator<T> {
 
     public Result<String> fitsInRange(@NotNull String challenger, @PositiveOrZero int lowBoundary, @Positive int highBoundary) {
         if (hasMinLength(challenger, lowBoundary)) {
-            return new Result<>(true, "El texto debe ser mayor a " + lowBoundary + " characters");
+            return new Result<>(true, "El texto debe ser mayor a " + lowBoundary + " un character");
         } else if (hasMaxLength(challenger, highBoundary)) {
-            return new Result<>(true, "El texto debe ser menor a " + highBoundary + " characters");
+            return new Result<>(true, "El texto debe ser menor a " + highBoundary + " characteres");
         }
         return new Result<>(false, null);
     }
 
-    public Result<String> IsAfter(@NotNull String challengerDate, @NotNull String challengeDate) {
+    public Result<String> isAfter(@NotNull String challengerDate, @NotNull String challengeDate) {
         try {
-            boolean check = formatter.parse(challengeDate).after(formatter.parse(challengerDate));
+            boolean check = formatter.parse(challengerDate).after(formatter.parse(challengeDate));
             if (check) {
                 return new Result<>(false, null);
             }
             return new Result<>(true, "La fecha debe ser despues de " + challengeDate);
         } catch (ParseException e) {
             e.printStackTrace();
-            return new Result<>(true, "Error inesperado");
+            return new Result<>(true, challengerDate + " Ni siquiera es una fecha 🤷‍♀️🤦‍♂️🤦‍♂️🤦‍♀️");
         }
     }
 

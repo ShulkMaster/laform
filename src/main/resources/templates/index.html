@@ -45,7 +45,7 @@
                         <fieldset name="about">
                             <div class="form-group">
                                 <label for="date-of-birth">Fecha de nacimiento</label>
-                                <input type="date" id="date-of-birth" name="date-of-birth" class="form-control"
+                                <input type="date" id="date-of-birth" th:field="*{dateOfBirth}" class="form-control"
                                        aria-describedby="date-of-birth-help">
                                 <small id="date-of-birth-help" class="form-text text-muted">No puede ser menor al 1 de
                                     enero
@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="place-of-birth">Lugar de nacimiento</label>
-                                <input type="text" id="place-of-birth" name="place-of-birth" placeholder="San Salvador"
+                                <input type="text" id="place-of-birth" th:field="*{placeOfBirth}" placeholder="San Salvador"
                                        class="form-control"
                                        aria-describedby="place-of-birth-help">
                                 <small id="place-of-birth-help" class="form-text text-muted">mínimo 1 carácter y máximo
@@ -62,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="institution">Instituto o Colegio de procedencia</label>
-                                <input type="text" class="form-control" id="institution" name="institution"
+                                <input type="text" id="institution" th:field="*{institution}" class="form-control"
                                        placeholder="Renegado Corazón"
                                        aria-describedby="institution-help">
                                 <small id="institution-help" class="form-text text-muted">mínimo 1 carácter y máximo 100

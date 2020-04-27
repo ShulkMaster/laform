@@ -1,8 +1,8 @@
 package com.sovize.laform.controller;
 
+import com.sovize.laform.domain.Result;
 import com.sovize.laform.domain.StudentForm;
-import com.sovize.laform.interfaces.IValidable;
-import com.sovize.laform.interfaces.IValidator;
+import com.sovize.laform.domain.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+
 @Controller
 @Component
 public class MainController {
 
-    private final IValidator<StudentForm> validator;
+    private final Validator<StudentForm> validator;
 
     @Autowired
-    public MainController(IValidator<StudentForm> validator) {
+    public MainController(Validator<StudentForm> validator) {
         this.validator = validator;
     }
 
@@ -35,8 +37,10 @@ public class MainController {
 
     @PostMapping(value = "/check")
     public ModelAndView check(StudentForm student) {
-        ModelAndView vm = validator.createViewModel(student);
-        vm.setViewName(student.getStatus().equals(IValidable.State.Valid) ? "valid" : "errors");
+        ModelAndView vm = new ModelAndView();
+        Result<ArrayList<String>> result = validator.validate(student);
+        vm.addObject(Validator.Keys.Error, result);
+        vm.setViewName(result.failure ? "errors" : "valid");
         return vm;
     }
 

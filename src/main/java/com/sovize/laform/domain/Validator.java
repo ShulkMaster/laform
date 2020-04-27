@@ -12,7 +12,7 @@ public abstract class Validator<T> {
     private final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public static class Keys{
-        public static final String Error = "error";
+        public static final String Error = "errors";
     }
 
     private boolean hasMinLength(@NotNull String challenger, @PositiveOrZero int challenge) {
@@ -25,9 +25,9 @@ public abstract class Validator<T> {
 
     public Result<String> fitsInRange(@NotNull String challenger, @PositiveOrZero int lowBoundary, @Positive int highBoundary) {
         if (hasMinLength(challenger, lowBoundary)) {
-            return new Result<>(true, "El texto debe ser mayor a " + lowBoundary + "characters");
+            return new Result<>(true, "El texto debe ser mayor a " + lowBoundary + " characters");
         } else if (hasMaxLength(challenger, highBoundary)) {
-            return new Result<>(true, "El texto debe ser menor a " + highBoundary + "characters");
+            return new Result<>(true, "El texto debe ser menor a " + highBoundary + " characters");
         }
         return new Result<>(false, null);
     }

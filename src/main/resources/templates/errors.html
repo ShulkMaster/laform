@@ -14,5 +14,20 @@
 <nav class="navbar navbar-expand navbar-dark bg-primary static-top">
     <a class="navbar-brand mr-1" href="/">Laform</a>
 </nav>
+<div id="wrapper">
+    <div id="content-wrapper text-center">
+        <h1>Ingreso invalido 🤢🤮🤮</h1>
+        <a href="/" class="btn btn-primary">Regresar</a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <ul>
+                <li th:each="error: ${errors}">
+                    <p th:text="${error}"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
